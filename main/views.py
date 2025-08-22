@@ -7,6 +7,8 @@ from rest_framework import status
 from main.models import *
 from main.serializers import *
 
+from .ml_model import predict_failure
+
 
 class PredictiveMaintenanceCreateView(APIView):
     def post(self, request, *args, **kwargs):
@@ -57,3 +59,13 @@ class PredictiveMaintenanceDetailView(APIView):
             return Response(
                 {"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
+class PredictiveMaintenanceMLView(APIView):
+    def post(self, request, *args, **kwargs):
+        try:
+            # request.data is expected to include the 10 features
+            result = predict_failure(request.data)
+            return Response(result, status=status.HTTP_200_OK)
+        except Exception as e:
+            traceback.print_exc()
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

@@ -13,4 +13,6 @@ urlpatterns = [
         PredictiveMaintenanceDetailView.as_view(),
         name="device-insight-detail",
     ),
+    path("predict/",  PredictiveMaintenanceMLView.as_view(),  name="predict-device-failure"),
+
 ]
