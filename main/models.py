@@ -1,5 +1,5 @@
 from django.db import models
-
+# from .devices.models import *
 
 class PredictiveMaintenance(models.Model):
     user_email = models.EmailField(null=True, blank=True)
