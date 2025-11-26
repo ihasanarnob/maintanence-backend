@@ -29,6 +29,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+SSLCOMMERZ_STORE_ID = 'predi690db30064a49'
+SSLCOMMERZ_STORE_PASSWORD = 'predi690db30064a49@ssl'
+SSLCOMMERZ_IS_SANDBOX = True
+
 
 # Application definition
 
