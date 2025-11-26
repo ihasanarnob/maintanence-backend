@@ -3,8 +3,10 @@ from django.contrib import admin
 from main.models import PredictiveMaintenance
 
 #for print and export as .csv file
-qs = PredictiveMaintenance.objects.all()
-print(qs)
+# qs = PredictiveMaintenance.objects.all()
+# print(qs)
+
+
 
 # Register your models here.
 class PredictiveMaintenanceAdmin(admin.ModelAdmin):

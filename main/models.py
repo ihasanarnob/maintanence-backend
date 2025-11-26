@@ -47,6 +47,20 @@ class PredictiveMaintenance(models.Model):
     updated_software = models.CharField(max_length=10)
     rooted = models.CharField(max_length=10)
 
+    # mL prediction
+    ml_prediction = models.CharField(
+        max_length=50, 
+        blank=True, 
+        null=True,
+        help_text="Prediction result from ML model"
+    )
+
+    ml_confidence = models.JSONField(
+        blank=True,
+        null=True,
+        help_text="Prediction probabilities for each class"
+    )
+
     # Arrays/JSON Fields
     primary_use = models.JSONField(default=list)
 
